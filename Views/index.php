@@ -1,9 +1,29 @@
+<?php
+
+
+require_once __DIR__ . '/../Model/Model.php';
+require_once __DIR__ . '/../Model/Category.php';
+require_once __DIR__ . '/../Model/Items.php';
+
+if(!isset($_SESSION["full_name"])) {
+  header("Location: login.php");
+  exit;
+}
+
+$categories = new Category();
+$menus = new Item();
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Ecommerce Dashboard &mdash; Stisla</title>
+  <title>POS PADANG</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="../assets/modules/bootstrap/css/bootstrap.min.css">
@@ -47,16 +67,16 @@
                   </div>
                   <div class="card-stats-items">
                     <div class="card-stats-item">
-                      <div class="card-stats-item-count">24</div>
+                      <div class="card-stats-item-count"><?= count($categories->all())?></div>
                       <div class="card-stats-item-label">Kategori</div>
                     </div>
                     <div class="card-stats-item">
-                      <div class="card-stats-item-count">12</div>
-                      <div class="card-stats-item-label">Shipping</div>
+                      <div class="card-stats-item-count"><?= count($menus->all())?></div>
+                      <div class="card-stats-item-label">Menu</div>
                     </div>
                     <div class="card-stats-item">
                       <div class="card-stats-item-count">23</div>
-                      <div class="card-stats-item-label">Completed</div>
+                      <div class="card-stats-item-label">Karyawan</div>
                     </div>
                   </div>
                 </div>

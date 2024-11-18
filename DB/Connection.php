@@ -3,7 +3,7 @@
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASSWORD', '');
-define('DB_NAME', 'crud_oop');
+define('DB_NAME', 'post_db');
 
 class Connection {
     public $db;
